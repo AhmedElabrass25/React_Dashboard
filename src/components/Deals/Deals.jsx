@@ -74,8 +74,8 @@ const Deals = () => {
   };
 
   return (
-    <div className="p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="pt-6">
+      <div className="container">
         <div className="head w-full flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-800 mb-6">
             Total: 136 deals
@@ -91,7 +91,7 @@ const Deals = () => {
 
         <div className="overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="min-w-full">
+            <table className="min-w-full mb-10">
               <thead>
                 <tr className="border-b-2 border-gray-200">
                   {headers.map((header) => (

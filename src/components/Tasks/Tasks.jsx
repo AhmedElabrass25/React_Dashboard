@@ -76,8 +76,8 @@ function Tasks() {
   };
 
   return (
-    <div className="p-6">
-      <div className="mx-auto overflow-hidden">
+    <div className="pt-6">
+      <div className="container">
         <div className="head w-full flex items-center justify-between mb-5">
           <h1 className="text-2xl font-bold text-gray-800 mb-6">
             Total: {tasks.length} deals
@@ -90,61 +90,74 @@ function Tasks() {
             classNames={{ option: () => "hover:!text-gray-800" }}
           />
         </div>
-
-        <table className="w-full table-auto text-sm text-left border-t border-gray-200 mb-10">
-          <thead className="text-primary uppercase">
-            <tr className="border-b-[1px] border-grey30">
-              <th className="px-6 py-3 w-1/4">
-                <input
-                  type="checkbox"
-                  className="w-4 h-4 text-blue-600 rounded"
-                  checked={tasks
-                    .slice(0, visibleDeals)
-                    .every((t) => checkedTasks.includes(t.id))}
-                  onChange={toggleAll}
-                />
-              </th>
-              <th className="px-6 py-3 w-1/4">Due Date</th>
-              <th className="px-6 py-3 w-3/4">Task</th>
-              <th className="px-6 py-3 text-right">Edit</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tasks.slice(0, visibleDeals).map(({ id, date, desc, status }) => (
-              <tr
-                key={id}
-                className="border-b border-gray-100 hover:bg-grey30/10 text-[17px]"
-              >
-                <td className="px-6 py-4">
-                  <input
-                    type="checkbox"
-                    checked={checkedTasks.includes(id)}
-                    onChange={() => handleCheckboxChange(id)}
-                    className="w-4 h-4 text-blue-600 rounded"
-                  />
-                </td>
-                <td className="px-6 py-4 flex items-center gap-2">
-                  <span>{date}</span>
-                </td>
-                <td className="px-6 py-4 text-gray-800">{desc}</td>
-                <td className="px-6 py-4 text-right">
-                  <Pencil className="w-4 h-4 text-gray-400 hover:text-gray-600 cursor-pointer" />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        {visibleDeals < tasks.length && (
-          <div className="px-6 py-3 text-right w-full flex justify-center">
-            <button
-              onClick={loadMore}
-              className="w-fit inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Load More
-            </button>
+        <div className="overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="min-w-full mb-10">
+              <thead className="text-primary uppercase">
+                <tr className="border-b-[1px] border-grey30 py-6">
+                  <th scope="col" className="px-6 py-3 text-start">
+                    <input
+                      type="checkbox"
+                      className="w-4 h-4 text-blue-600 rounded"
+                      checked={tasks
+                        .slice(0, visibleDeals)
+                        .every((t) => checkedTasks.includes(t.id))}
+                      onChange={toggleAll}
+                    />
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-start">
+                    Due Date
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-start ">
+                    Task
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-start">
+                    Edit
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {tasks
+                  .slice(0, visibleDeals)
+                  .map(({ id, date, desc, status }) => (
+                    <tr
+                      key={id}
+                      className="border-b border-gray-100 hover:bg-grey30/10 text-[17px]"
+                    >
+                      <td className="px-6 py-6 whitespace-nowrap">
+                        <input
+                          type="checkbox"
+                          checked={checkedTasks.includes(id)}
+                          onChange={() => handleCheckboxChange(id)}
+                          className="w-4 h-4 text-blue-600 rounded"
+                        />
+                      </td>
+                      <td className="px-6 py-6 whitespace-nowrap flex items-center gap-2">
+                        <span>{date}</span>
+                      </td>
+                      <td className="px-6 py-6 whitespace-nowrap text-gray-800">
+                        {desc}
+                      </td>
+                      <td className="px-6 py-6 whitespace-nowrap text-right">
+                        <Pencil className="w-4 h-4 text-gray-400 hover:text-gray-600 cursor-pointer" />
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
           </div>
-        )}
+
+          {visibleDeals < tasks.length && (
+            <div className="px-6 py-3 text-right w-full flex justify-center">
+              <button
+                onClick={loadMore}
+                className="w-fit inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Load More
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

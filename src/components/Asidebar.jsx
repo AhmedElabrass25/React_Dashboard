@@ -13,9 +13,12 @@ import {
   BarChart,
 } from "lucide-react";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const Asidebar = ({ openSide, setOpenSide, setPageName }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const { pathname } = useLocation();
+  console.log(pathname);
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768); // Define threshold for mobile view
@@ -54,7 +57,11 @@ const Asidebar = ({ openSide, setOpenSide, setPageName }) => {
               >
                 <Link
                   to={link.link}
-                  className="flex items-center justify-center p-2 text-gray-900 rounded-lg"
+                  className={`flex items-center justify-center p-2 rounded-lg border-[1px] border-grey50 ${
+                    pathname === link.link
+                      ? "text-white bg-blue"
+                      : "text-gray-900 hover:bg-blue hover:text-white"
+                  }`}
                   onClick={() => {
                     setOpenSide(false);
                     setPageName(link.name);
