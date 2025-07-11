@@ -1,21 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import user from "../assets/user.png";
+import user from "../assets/User.png";
 import DropDown from "./ui/DropDown";
 import CustomerForm from "./ui/CustomerForm";
-
-import {
-  Users,
-  User,
-  Settings,
-  ListChecks,
-  CalendarDays,
-  Bell,
-  LayoutDashboard,
-  BriefcaseBusiness,
-  X,
-  BarChart,
-  MoveRight,
-} from "lucide-react";
 const Navbar = ({ openSide, setOpenSide, pageName }) => {
   const [searchOpen, setSearchOpen] = useState(false);
   const searchRef = useRef();
