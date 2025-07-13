@@ -4,6 +4,8 @@ const DropDown = ({
   setDropdownOpen,
   setSelectedForm,
   setOpenCustomerForm,
+  setOpenAddDealForm,
+  setOpenAddTaskForm,
 }) => {
   return (
     <>
@@ -33,7 +35,7 @@ const DropDown = ({
         </button>
         <button
           onClick={() => {
-            // setSelectedForm("deal");
+            setOpenAddDealForm(true);
             setDropdownOpen(false);
           }}
           className="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 text-left"
@@ -42,6 +44,20 @@ const DropDown = ({
             {" "}
             <BriefcaseBusiness />
             Deal
+          </span>
+          <MoveRight />
+        </button>
+        <button
+          onClick={() => {
+            setOpenAddTaskForm(true);
+            setDropdownOpen(false);
+          }}
+          className="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 text-left"
+        >
+          <span className="flex items-center gap-2">
+            {" "}
+            <BriefcaseBusiness />
+            Task
           </span>
           <MoveRight />
         </button>

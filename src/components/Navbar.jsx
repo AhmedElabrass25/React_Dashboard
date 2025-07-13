@@ -2,13 +2,16 @@ import React, { useState, useRef, useEffect } from "react";
 import user from "../assets/User.png";
 import DropDown from "./ui/DropDown";
 import CustomerForm from "./ui/CustomerForm";
+import AddDealForm from "./ui/AddDealForm";
+import AddTaskForm from "./ui/AddTaskForm";
 const Navbar = ({ openSide, setOpenSide, pageName }) => {
   const [searchOpen, setSearchOpen] = useState(false);
   const searchRef = useRef();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedForm, setSelectedForm] = useState(null);
   const [openCustomerForm, setOpenCustomerForm] = useState(false);
-
+  const [openAddDealForm, setOpenAddDealForm] = useState(false);
+  const [openAddTaskForm, setOpenAddTaskForm] = useState(false);
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (searchRef.current && !searchRef.current.contains(e.target)) {
@@ -38,7 +41,7 @@ const Navbar = ({ openSide, setOpenSide, pageName }) => {
               className="bg-[#5d5fef] text-white font-medium md:px-4 px-3 py-1 md:py-2 rounded-lg md:rounded-full hover:bg-indigo-600 transition"
             >
               <span className="block md:hidden text-xl">+</span>
-              <span className="hidden md:inline">Add New Task +</span>
+              <span className="hidden md:inline">Add New</span>
             </button>
             {/* =============== Dropdown =============== */}
             {dropdownOpen && (
@@ -46,6 +49,8 @@ const Navbar = ({ openSide, setOpenSide, pageName }) => {
                 setDropdownOpen={setDropdownOpen}
                 setSelectedForm={setSelectedForm}
                 setOpenCustomerForm={setOpenCustomerForm}
+                setOpenAddDealForm={setOpenAddDealForm}
+                setOpenAddTaskForm={setOpenAddTaskForm}
               />
             )}
           </div>
@@ -78,6 +83,12 @@ const Navbar = ({ openSide, setOpenSide, pageName }) => {
       </nav>
       {openCustomerForm && (
         <CustomerForm setOpenCustomerForm={setOpenCustomerForm} />
+      )}
+      {openAddDealForm && (
+        <AddDealForm setOpenAddDealForm={setOpenAddDealForm} />
+      )}
+      {openAddTaskForm && (
+        <AddTaskForm setOpenAddTaskForm={setOpenAddTaskForm} />
       )}
     </>
   );

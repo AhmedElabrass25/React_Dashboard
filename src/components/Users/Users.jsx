@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import Select from "react-select";
 import { CircleUser } from "lucide-react";
 import { Pencil } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Users = () => {
+  const navigate = useNavigate();
   const customers = [
     {
       id: 1,
@@ -116,7 +118,8 @@ const Users = () => {
                   {customers.slice(0, visibleDeals).map((user) => (
                     <tr
                       key={user.id}
-                      className="hover:bg-gray-50 transition border-b"
+                      className="hover:bg-gray-50 transition border-b cursor-pointer"
+                      onClick={() => navigate(`/userDetails/${user.id}`)}
                     >
                       <td className="py-6 px-4">
                         <img
