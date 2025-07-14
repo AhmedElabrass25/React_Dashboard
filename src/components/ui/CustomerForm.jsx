@@ -5,7 +5,8 @@ const CustomerForm = ({ setOpenCustomerForm }) => {
     <>
       (
       <div className="fixed inset-0 bg-grey50 bg-opacity-40 flex items-center justify-center z-50">
-        <div className="bg-white rounded-xl shadow-lg w-[95%] max-w-2xl p-6">
+        <div className="bg-white rounded-xl shadow-lg w-[95%] max-w-[650px] max-h-[90vh] overflow-y-auto p-6">
+          {/* Header */}
           <div className="flex items-start justify-between mb-4">
             <h2 className="text-lg font-semibold text-gray-800">
               Add New Customer
@@ -17,19 +18,18 @@ const CustomerForm = ({ setOpenCustomerForm }) => {
               ✖
             </button>
           </div>
-
+          {/* Form */}
           <form className="space-y-6">
             {/* Avatar Upload */}
             <div>
-              <label className="block font-medium text-gray-700 mb-1">
-                Avatar
-              </label>
-              <button
-                type="button"
-                className="px-4 py-2 rounded-md bg-gray-100 text-gray-700"
+              <h2 className="block font-medium text-gray-700 mb-3">Avatar</h2>
+              <input type="file" className="hidden" id="roomImage" />
+              <label
+                htmlFor="roomImage"
+                className="px-4 py-2 rounded-md bg-gray-100 text-gray-700 cursor-pointer"
               >
                 ADD
-              </button>
+              </label>
             </div>
 
             {/* Name Fields */}

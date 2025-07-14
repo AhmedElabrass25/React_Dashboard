@@ -81,6 +81,7 @@ const Navbar = ({ openSide, setOpenSide, pageName }) => {
           />
         </div>
       </nav>
+      {/* ============== Forms =============== */}
       {openCustomerForm && (
         <CustomerForm setOpenCustomerForm={setOpenCustomerForm} />
       )}

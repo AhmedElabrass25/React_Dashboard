@@ -83,8 +83,9 @@ const Deals = () => {
       {editDealForm && <EditDealForm setEditDealForm={setEditDealForm} />}
       <div className="pt-6">
         <div className="container">
-          <div className="head w-full flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-gray-800 mb-6">
+          {/* ===============Deals Header============== */}
+          <div className="head w-full flex items-center justify-between mb-5">
+            <h1 className="text-lg md:text-2xl font-bold text-gray-800 ">
               Total: 136 deals
             </h1>
 
@@ -99,6 +100,7 @@ const Deals = () => {
           <div className="overflow-hidden">
             <div className="overflow-x-auto">
               <table className="min-w-full mb-10">
+                {/* ===============Table Head=============== */}
                 <thead>
                   <tr className="border-b-2 border-gray-200">
                     {headers.map((header) => (
@@ -112,18 +114,19 @@ const Deals = () => {
                     ))}
                   </tr>
                 </thead>
+                {/* ===============Table Body=============== */}
                 <tbody className="divide-y divide-gray-200">
                   {deals.slice(0, visibleDeals).map((deal) => (
                     <tr
                       key={deal.id}
                       className="hover:bg-grey30/50 cursor-pointer"
-                      onClick={() => navigate(`/editDetails/${deal.id}`)}
+                      onClick={() => navigate(`/dealDetails/${deal.id}`)}
                     >
                       <td className="px-6 py-6 whitespace-nowrap text-sm font-medium text-gray-900 flex items-center gap-2">
                         <img
                           src={deal.image}
                           alt=""
-                          className="w-10 h-10 rounded-full"
+                          className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0"
                         />
                         <span> {deal.name}</span>
                       </td>
@@ -171,7 +174,7 @@ const Deals = () => {
                 </tbody>
               </table>
             </div>
-
+            {/* Load More */}
             {visibleDeals < deals.length && (
               <div className="px-6 py-3 text-right w-full flex justify-center">
                 <button

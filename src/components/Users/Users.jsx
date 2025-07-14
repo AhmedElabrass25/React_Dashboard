@@ -71,10 +71,10 @@ const Users = () => {
     <>
       <div className="pt-6">
         <div className="container">
-          {/* Header */}
-          <div className="flex justify-between items-center mb-4">
+          {/* User Header */}
+          <div className="flex justify-between items-center mb-5">
             <div className="head w-full flex items-center justify-between">
-              <h1 className="text-2xl font-bold text-gray-800 mb-6">
+              <h1 className="text-lg md:text-2xl font-bold text-gray-800">
                 Total: 78 customers
               </h1>
 
@@ -90,7 +90,9 @@ const Users = () => {
           {/* Table */}
           <div className="overflow-hidden">
             <div className="overflow-x-auto">
+              {/* Table */}
               <table className="min-w-full mb-10">
+                {/* Table head */}
                 <thead>
                   <tr className="text-left text-sm text-grey70 border-b-2">
                     <th scope="col" className="py-2 px-4">
@@ -114,6 +116,7 @@ const Users = () => {
                     </th>
                   </tr>
                 </thead>
+                {/* Table body */}
                 <tbody>
                   {customers.slice(0, visibleDeals).map((user) => (
                     <tr
@@ -125,7 +128,7 @@ const Users = () => {
                         <img
                           src={user.image}
                           alt={user.name}
-                          className="w-10 h-10 rounded-full object-cover"
+                          className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 object-cover"
                         />
                       </td>
                       <td className="py-4 px-4  whitespace-nowrap font-medium text-primary">

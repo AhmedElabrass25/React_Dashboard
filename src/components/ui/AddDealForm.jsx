@@ -4,7 +4,8 @@ const AddDealForm = ({ setOpenAddDealForm }) => {
   return (
     <>
       <div className="fixed inset-0 bg-grey50 bg-opacity-40 flex items-center justify-center z-50">
-        <div className="bg-white rounded-xl shadow-lg w-[95%] max-w-2xl p-6">
+        <div className="bg-white rounded-xl shadow-lg w-[95%]max-w-[650px] max-h-[90vh] overflow-y-auto p-6">
+          {/* Header */}
           <div className="flex items-start justify-between mb-4">
             <h2 className="text-lg font-semibold text-gray-800">
               Add New Deal
@@ -16,7 +17,7 @@ const AddDealForm = ({ setOpenAddDealForm }) => {
               ✖
             </button>
           </div>
-
+          {/*  Form */}
           <form className="space-y-6">
             {/* Avatar Upload */}
             <div>
@@ -25,7 +26,7 @@ const AddDealForm = ({ setOpenAddDealForm }) => {
                 px-4 rounded-lg mb-5 bg-grey50/40"
               >
                 <div className="flex items-center gap-2">
-                  <div className="w-12 h-12 rounded-full bg-grey50"></div>
+                  <div className="w-12 h-12 overflow-hidden rounded-full flex-shrink-0 bg-grey50"></div>
                   <div>
                     <p className="text-gray-700 font-medium">
                       319 Haul Road, Saint Paul, MN
@@ -81,14 +82,14 @@ const AddDealForm = ({ setOpenAddDealForm }) => {
             {/* Room area & number of people */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* room area */}
-              <div>
+              <div className="w-full">
                 <label className="block font-medium text-gray-700 mb-1">
                   Room Area (m2)
                 </label>
                 <input
                   type="number"
                   placeholder="Room Area"
-                  className="border border-gray-200 px-3 py-2 rounded-md bg-gray-50"
+                  className="w-full border border-gray-200 px-3 py-2 rounded-md bg-gray-50"
                 />
               </div>
               {/* number of people */}
@@ -99,7 +100,7 @@ const AddDealForm = ({ setOpenAddDealForm }) => {
                 <input
                   type="number"
                   placeholder="Number of People"
-                  className="border border-gray-200 px-3 py-2 rounded-md bg-gray-50"
+                  className="w-full border border-gray-200 px-3 py-2 rounded-md bg-gray-50"
                 />
               </div>
             </div>
@@ -112,7 +113,7 @@ const AddDealForm = ({ setOpenAddDealForm }) => {
                 </label>
                 <input
                   type="date"
-                  className="border border-gray-200 px-3 py-2 rounded-md bg-gray-50"
+                  className="w-full border border-gray-200 px-3 py-2 rounded-md bg-gray-50"
                 />
               </div>
               {/* Special instructions */}
@@ -122,7 +123,7 @@ const AddDealForm = ({ setOpenAddDealForm }) => {
                 </label>
                 <textarea
                   placeholder="Special Instructions"
-                  className="border border-gray-200 px-3 py-2 rounded-md bg-gray-50"
+                  className="w-full border border-gray-200 px-3 py-2 rounded-md bg-gray-50"
                 ></textarea>
               </div>
             </div>
@@ -135,7 +136,7 @@ const AddDealForm = ({ setOpenAddDealForm }) => {
                 <input
                   type="text"
                   placeholder="Room Access"
-                  className="border border-gray-200 px-3 py-2 rounded-md bg-gray-50"
+                  className="w-full border border-gray-200 px-3 py-2 rounded-md bg-gray-50"
                 />
               </div>
               <div>
@@ -145,7 +146,7 @@ const AddDealForm = ({ setOpenAddDealForm }) => {
                 <input
                   type="number"
                   placeholder="Price"
-                  className="border border-gray-200 px-3 py-2 rounded-md bg-gray-50"
+                  className="w-full border border-gray-200 px-3 py-2 rounded-md bg-gray-50"
                 />
               </div>
             </div>
@@ -154,7 +155,7 @@ const AddDealForm = ({ setOpenAddDealForm }) => {
               <label className="block font-medium text-gray-700 mb-1">
                 Progress
               </label>
-              <select className="border border-gray-200 px-3 py-2 rounded-md bg-gray-50">
+              <select className="w-full border border-gray-200 px-3 py-2 rounded-md bg-gray-50">
                 <option>Not Started</option>
                 <option>Started</option>
                 <option>Completed</option>

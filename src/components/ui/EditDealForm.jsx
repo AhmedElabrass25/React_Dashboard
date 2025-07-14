@@ -3,7 +3,7 @@ import React from "react";
 const EditDealForm = ({ setEditDealForm }) => {
   return (
     <div className="fixed inset-0 bg-grey50 bg-opacity-40 flex items-center justify-center z-50">
-      <div className="bg-white rounded-xl shadow-lg w-[95%] max-w-2xl p-6">
+      <div className="bg-white rounded-xl shadow-lg w-[95%] max-w-[650px] max-h-[90vh] overflow-y-auto p-6">
         <div className="flex items-start justify-between mb-4">
           <h2 className="text-lg font-semibold text-gray-800">Edit Deal</h2>
           <button

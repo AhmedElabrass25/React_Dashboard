@@ -1,7 +1,7 @@
 import { Delete, DeleteIcon, Edit } from "lucide-react";
 import React from "react";
 
-const EditDetails = () => {
+const DealDetails = () => {
   return (
     <>
       <div className="pt-6">
@@ -82,7 +82,7 @@ const EditDetails = () => {
                   </span>
                 </div>
               </div>
-              {/* ==== */}
+              {/* === */}
               <div className="w-full flex items-center justify-between mb-4">
                 <div className="w-1/2">
                   <h2 className="text-gray-500 text-sm font-medium mb-2">
@@ -101,6 +101,7 @@ const EditDetails = () => {
                   </span>
                 </div>
               </div>
+              {/* === */}
               <div className="w-full">
                 <h2 className="text-gray-500 text-sm font-medium mb-1">
                   Special Instructions
@@ -207,4 +208,4 @@ const EditDetails = () => {
   );
 };
 
-export default EditDetails;
+export default DealDetails;

@@ -53,9 +53,10 @@ const BottomSide = () => {
             <MoveRight color="#514ef3" />
           </div>
         </div>
+        {/* ===============Timeline============= */}
         <ul className="py-4 text-sm flex flex-col flex-wrap gap-5">
           <li className="flex items-center gap-3">
-            <div className="w-6 h-6 rounded-full flex items-center justify-center bg-blue">
+            <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center bg-blue">
               <span className="h-2 w-2 rounded-full bg-white"></span>
             </div>
             <div>
@@ -66,7 +67,7 @@ const BottomSide = () => {
             </div>
           </li>
           <li className="flex items-center gap-3">
-            <div className="w-6 h-6 rounded-full flex items-center justify-center bg-blue">
+            <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center bg-blue">
               <span className="h-2 w-2 rounded-full bg-white"></span>
             </div>
             <div>
@@ -77,13 +78,14 @@ const BottomSide = () => {
             </div>
           </li>
         </ul>
+        {/* =================Load More=============== */}
         <div className="loadMore text-center py-6">
           <button className="w-fit text-lg font-semibold bg-grey30 py-2 px-4 rounded-[30px] text-blue">
             Load More
           </button>
         </div>
       </div>
-      {/* =============================== */}
+      {/* ================To Do============= */}
       <div className="bg-white w-full md:w-[48%] xl:w-[31%] rounded-xl p-4 shadow-sm">
         <div className="flex justify-between mb-4">
           <h2 className="text-lg font-bold text-primary">Tasks To Do</h2>

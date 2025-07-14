@@ -38,6 +38,30 @@ const Asidebar = ({ openSide, setOpenSide, setPageName }) => {
     { link: "/notifications", icon: <Bell />, name: "Notifications" },
     { link: "/settings", icon: <Settings />, name: "Settings" },
   ];
+  useEffect(() => {
+    // Auto-update page name based on path
+    if (pathname === "/") {
+      setPageName("Dashboard");
+    } else if (pathname === "/users") {
+      setPageName("Users");
+    } else if (pathname === "/deals") {
+      setPageName("Deals");
+    } else if (pathname === "/tasks") {
+      setPageName("Tasks");
+    } else if (pathname === "/dates") {
+      setPageName("Dates");
+    } else if (pathname === "/notifications") {
+      setPageName("Notifications");
+    } else if (pathname === "/settings") {
+      setPageName("Settings");
+    } else if (pathname.startsWith("/userDetails")) {
+      setPageName("User Details");
+    } else if (pathname.startsWith("/dealDetails")) {
+      setPageName("Deal Details");
+    } else {
+      setPageName("Page"); // fallback
+    }
+  }, [pathname]);
   return (
     <>
       {/* Sidebar */}
@@ -58,13 +82,16 @@ const Asidebar = ({ openSide, setOpenSide, setPageName }) => {
                 <Link
                   to={link.link}
                   className={`flex items-center justify-center p-2 rounded-lg border-[1px] border-grey50 ${
-                    pathname === link.link
+                    pathname === link.link ||
+                    (link.link === "/users" &&
+                      pathname.startsWith("/userDetails/")) ||
+                    (link.link === "/deals" &&
+                      pathname.startsWith("/dealDetails/"))
                       ? "text-white bg-blue"
                       : "text-gray-900 hover:bg-blue hover:text-white"
                   }`}
                   onClick={() => {
                     setOpenSide(false);
-                    setPageName(link.name);
                   }}
                 >
                   {link.icon}
@@ -74,8 +101,6 @@ const Asidebar = ({ openSide, setOpenSide, setPageName }) => {
           </ul>
         </aside>
       )}
-
-      {/* <Asidebar /> */}
     </>
   );
 };

@@ -10,7 +10,7 @@ import Date from "./components/Date/Date";
 import Notifications from "./components/Notifications/Notifications";
 import Settings from "./components/Setting/Settings";
 import Navbar from "./components/Navbar";
-import EditDetails from "./components/Deals/EditDetails";
+import DealDetails from "./components/Deals/DealDetails";
 import UserDetails from "./components/Users/UserDetails";
 
 const App = () => {
@@ -37,7 +37,7 @@ const App = () => {
               <Route path="/users" element={<Users />} />
               <Route path="/tasks" element={<Tasks />} />
               <Route path="/dates" element={<Date />} />
-              <Route path="/editDetails/:id" element={<EditDetails />} />
+              <Route path="/dealDetails/:id" element={<DealDetails />} />
               <Route path="/userDetails/:id" element={<UserDetails />} />
 
               <Route path="/notifications" element={<Notifications />} />

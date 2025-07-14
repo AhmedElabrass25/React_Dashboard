@@ -81,8 +81,9 @@ function Tasks() {
     <>
       <div className="pt-6">
         <div className="container">
+          {/* =============Tasks Header============== */}
           <div className="head w-full flex items-center justify-between mb-5">
-            <h1 className="text-2xl font-bold text-gray-800 mb-6">
+            <h1 className="text-lg md:text-2xl font-bold text-gray-800">
               Total: {tasks.length} deals
             </h1>
 
@@ -96,6 +97,7 @@ function Tasks() {
           <div className="overflow-hidden">
             <div className="overflow-x-auto">
               <table className="min-w-full mb-10">
+                {/* Table head */}
                 <thead className="text-primary uppercase">
                   <tr className="border-b-[1px] border-grey30 py-6">
                     <th scope="col" className="px-6 py-3 text-start">
@@ -119,40 +121,39 @@ function Tasks() {
                     </th>
                   </tr>
                 </thead>
+                {/* Table body */}
                 <tbody>
-                  {tasks
-                    .slice(0, visibleDeals)
-                    .map(({ id, date, desc, status }) => (
-                      <tr
-                        key={id}
-                        className="border-b border-gray-100 hover:bg-grey30/10 text-[17px]"
-                      >
-                        <td className="px-6 py-6 whitespace-nowrap">
-                          <input
-                            type="checkbox"
-                            checked={checkedTasks.includes(id)}
-                            onChange={() => handleCheckboxChange(id)}
-                            className="w-4 h-4 text-blue-600 rounded"
-                          />
-                        </td>
-                        <td className="px-6 py-6 whitespace-nowrap flex items-center gap-2">
-                          <span>{date}</span>
-                        </td>
-                        <td className="px-6 py-6 whitespace-nowrap text-gray-800">
-                          {desc}
-                        </td>
-                        <td className="px-6 py-6 whitespace-nowrap text-right">
-                          <Pencil
-                            onClick={() => setOpenEditTaskForm(true)}
-                            className="w-4 h-4 text-gray-400 hover:text-gray-600 cursor-pointer"
-                          />
-                        </td>
-                      </tr>
-                    ))}
+                  {tasks.slice(0, visibleDeals).map(({ id, date, desc }) => (
+                    <tr
+                      key={id}
+                      className="border-b border-gray-100 hover:bg-grey30/10 text-[17px]"
+                    >
+                      <td className="px-6 py-6 whitespace-nowrap">
+                        <input
+                          type="checkbox"
+                          checked={checkedTasks.includes(id)}
+                          onChange={() => handleCheckboxChange(id)}
+                          className="w-4 h-4 text-blue-600 rounded"
+                        />
+                      </td>
+                      <td className="px-6 py-6 whitespace-nowrap flex items-center gap-2">
+                        <span>{date}</span>
+                      </td>
+                      <td className="px-6 py-6 whitespace-nowrap text-gray-800">
+                        {desc}
+                      </td>
+                      <td className="px-6 py-6 whitespace-nowrap text-right">
+                        <Pencil
+                          onClick={() => setOpenEditTaskForm(true)}
+                          className="w-4 h-4 text-gray-400 hover:text-gray-600 cursor-pointer"
+                        />
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
-
+            {/* Load More */}
             {visibleDeals < tasks.length && (
               <div className="px-6 py-3 text-right w-full flex justify-center">
                 <button
@@ -166,6 +167,7 @@ function Tasks() {
           </div>
         </div>
       </div>
+      {/* Edit Task */}
       {openEditTaskForm && (
         <EditTaskForm setOpenEditTaskForm={setOpenEditTaskForm} />
       )}
